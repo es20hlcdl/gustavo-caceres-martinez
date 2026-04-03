@@ -31,4 +31,4 @@ Abre `index.html` en tu navegador para visualizar el sitio localmente.
 
 ## Autor
 
-**Gustavo Abel Caceres Martinez**
+**Gustavo Abel Cáceres Martínez**
