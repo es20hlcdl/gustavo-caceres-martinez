@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Abel Cáceres Martínez | Geodesia, Catastro y SIG</title>
+    <meta name="description" content="Perfil profesional de Gustavo Abel Cáceres Martínez, Ingeniero Agrimensor especializado en geodesia, catastro multifinalitario, GNSS y sistemas de información geográfica.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <svg class="topo-bg" viewBox="0 0 1200 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path class="topo-line" d="M0,90 Q220,20 440,90 T880,90 T1320,90"></path>
+        <path class="topo-line" d="M0,180 Q260,120 520,180 T1040,180" style="animation-delay:-4s"></path>
+        <path class="topo-line" d="M0,280 Q320,220 640,280 T1280,280" style="animation-delay:-8s"></path>
+        <path class="topo-line" d="M0,390 Q180,320 360,390 T720,390 T1080,390" style="animation-delay:-12s"></path>
+        <path class="topo-line" d="M0,510 Q280,450 560,510 T1120,510" style="animation-delay:-16s"></path>
+        <path class="topo-line" d="M0,650 Q330,590 660,650 T1320,650" style="animation-delay:-20s"></path>
+        <path class="topo-line" d="M0,790 Q210,730 420,790 T840,790 T1260,790" style="animation-delay:-24s"></path>
+        <path class="topo-line" d="M0,920 Q280,860 560,920 T1120,920" style="animation-delay:-28s"></path>
+    </svg>
+
+    <div class="urban-grid" aria-hidden="true"></div>
+
+    <nav class="site-nav">
+        <a class="brand" href="#top">
+            <span class="brand-text">Gustavo Cáceres</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#expertise">Áreas</a></li>
+            <li><a href="#trajectory">Trayectoria</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#map">Territorio</a></li>
+            <li><a href="#students">Alcance Formativo</a></li>
+            <li><a href="#teaching">Investigación</a></li>
+            <li><a href="#recognition">Reconocimientos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main id="top">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Ingeniero Agrimensor | Catastro | SIG | Geodesta | Cartógrafo</p>
+                <h1>Gustavo Abel Cáceres Martínez</h1>
+                <p class="hero-motto">¡¡Entre la teoría y la realidad!!</p>
+                <p class="hero-lead">
+                    Trabajo en la intersección entre catastro, SIG, geodesia, cartografía y ordenamiento territorial. Me interesa que la información territorial deje de ser un producto estático y se convierta en un sistema vivo: útil para planificar, decidir y actuar.
+                </p>
+                <div class="hero-stats">
+                    <article class="stat-card reveal">
+                        <strong data-count="2018">2018</strong>
+                        <span>Inicio de experiencia en campo</span>
+                    </article>
+                    <article class="stat-card reveal">
+                        <strong data-count="2022">2022</strong>
+                        <span>Ingeniero Agrimensor</span>
+                    </article>
+                    <article class="stat-card reveal">
+                        <strong data-count="2023">2023</strong>
+                        <span>Diplomado en SIG, Teledetección y su Aplicación al Catastro</span>
+                    </article>
+                    <article class="stat-card reveal">
+                        <strong data-count="2024">2024</strong>
+                        <span>Especialidad en Planificación Territorial y Urbanismo</span>
+                    </article>
+                    <article class="stat-card reveal">
+                        <strong data-count="2025">2025</strong>
+                        <span>Diplomado en Educación Superior por Competencias</span>
+                    </article>
+                    <article class="stat-card reveal">
+                        <strong data-count="2026">2026</strong>
+                        <span>Tesista de la Maestría en Catastro Territorial y Geodesia</span>
+                    </article>
+                </div>
+            </div>
+
+            <aside class="hero-panel reveal">
+                <div class="hero-panel-image">
+                    <div class="hero-globe-wrap" aria-hidden="true">
+                        <canvas id="hero-globe"></canvas>
+                        <div class="hero-globe-caption">Bolivia – Santa Cruz: ¡Ni te imaginás!</div>
+                    </div>
+                </div>
+                <div class="hero-panel-content">
+                    <p class="panel-label">Líneas activas</p>
+                    <ul class="panel-list">
+                        <li>Procesamiento GNSS con GAMIT/GLOBK</li>
+                        <li>Estructuración de catastro multifinalitario en SIG libre</li>
+                        <li>Cartografía para planificación urbana-rural y gestión ambiental</li>
+                        <li>Actualización de áreas urbanas dispersas y delimitación técnica</li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="section-heading reveal">
+                <span class="section-index">01</span>
+                <div>
+                    <p class="section-kicker">Sobre mí</p>
+                    <h2>Sobre mí</h2>
+                </div>
+            </div>
+
+            <div class="about-layout">
+                <div class="about-photo reveal">
+                    <div class="about-photo-frame"></div>
+                    <img class="about-portrait" src="assets/foto-yo.jpg" alt="Retrato profesional de Gustavo Abel Cáceres Martínez">
+                </div>
+                <div class="about-text reveal">
+                    <p>
+                        Soy Ingeniero Agrimensor con experiencia en cartografía, geodesia, planificación territorial, catastro y sistemas de información geográfica. He desarrollado investigaciones sobre modelos de trayectoria de estaciones GNSS y he participado en proyectos vinculados al desarrollo urbano, el monitoreo geoespacial y la actualización catastral. Mi trabajo se ha orientado a la innovación aplicada, especialmente mediante el uso de SIG libre para el fortalecimiento del catastro multifinalitario. Asimismo, he brindado asistencia técnica en gestión del riesgo de incendios forestales, trabajos de gravimetría y docencia en programas de pregrado y postgrado. He liderado procesos de análisis urbano-rural y modernización catastral, promoviendo la implementación de sistemas de referencia geodésicos modernos y enfoques de catastro multifinalitario, con un firme compromiso con la formulación y aplicación de políticas territoriales y ambientales.
+                    </p>
+                    <div class="about-pills">
+                        <span>Catastro multifinalitario</span>
+                        <span>Geodesia</span>
+                        <span>Cartografía</span>
+                        <span>SIG</span>
+                        <span>Políticas territoriales y ambientales</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expertise-section" id="expertise">
+            <div class="section-heading reveal">
+                <span class="section-index">02</span>
+                <div>
+                    <p class="section-kicker">Áreas de enfoque</p>
+                    <h2>Áreas de enfoque</h2>
+                </div>
+            </div>
+
+            <div class="expertise-grid">
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/cartografia-tematica.jpeg" alt="Cartografía temática y análisis espacial">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">Cartografía temática</span>
+                        <p>Mapas temáticos orientados al análisis espacial y la lectura precisa del territorio.</p>
+                        <div class="expertise-pills">
+                            <span>QGIS</span>
+                            <span>ARCGIS PRO</span>
+                            <span>BLENDER</span>
+                            <span>MAPAS WEB</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/catastro.jpg" alt="Gestión catastral y registro territorial">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">Catastro multifinalitario</span>
+                        <p>Registro, actualización y organización parcelaria para la gestión territorial y municipal.</p>
+                        <div class="expertise-pills">
+                            <span>CATASTRO</span>
+                            <span>NORMAS</span>
+                            <span>SIG</span>
+                            <span>GESTIÓN MUNICIPAL</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/sig-mapa.jpg" alt="Sistema de informacion geografica y analisis geoespacial">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">SIG y análisis geoespacial</span>
+                        <p>Visualización, modelado y análisis territorial para apoyar decisiones basadas en datos.</p>
+                        <div class="expertise-pills">
+                            <span>QGIS</span>
+                            <span>ARCGIS PRO</span>
+                            <span>ANÁLISIS ESPACIAL</span>
+                            <span>PYTHON</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/geodesia-topografia.jpg" alt="Trabajos de geodesia y topografía de precisión">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">Geodesia y topografía</span>
+                        <p>Levantamientos, redes GNSS y control técnico con enfoque en precisión y referencia espacial.</p>
+                        <div class="expertise-pills">
+                            <span>GNSS</span>
+                            <span>RTK</span>
+                            <span>ESTACIÓN TOTAL</span>
+                            <span>CONTROL</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/teledeteccion.png" alt="Teledetección y fotogrametría aérea">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">Teledetección y fotogrametría aérea</span>
+                        <p>Interpretación de imágenes y productos fotogramétricos para monitoreo y análisis territorial.</p>
+                        <div class="expertise-pills">
+                            <span>SENTINEL</span>
+                            <span>LANDSAT</span>
+                            <span>GEE</span>
+                            <span>DRONES</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="expertise-card reveal">
+                    <img class="expertise-image" src="assets/planificacion-urbana.png" alt="Planificación y ordenamiento territorial">
+                    <div class="expertise-content">
+                        <span class="expertise-tag">Planificación y ordenamiento territorial</span>
+                        <p>Diseño de propuestas territoriales para orientar el crecimiento urbano y rural.</p>
+                        <div class="expertise-pills">
+                            <span>USO DEL SUELO</span>
+                            <span>ZONIFICACIÓN</span>
+                            <span>PTDI</span>
+                            <span>GESTIÓN URBANA</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="trajectory-section" id="trajectory">
+            <div class="section-heading reveal">
+                <span class="section-index">03</span>
+                <div>
+                    <p class="section-kicker">Trayectoria</p>
+                    <h2>Trayectoria</h2>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-item timeline-item-current reveal">
+                    <div class="timeline-year">Actualidad</div>
+                    <div class="timeline-body">
+                        <span class="timeline-status">En curso</span>
+                        <h3>Docente de Rutas y Mapas Digitales</h3>
+                        <p class="timeline-role-meta">Unifranz · Docencia universitaria aplicada al turismo y los SIG</p>
+                        <ul class="timeline-highlights">
+                            <li>Formación en levantamiento, depuración y análisis de datos territoriales.</li>
+                            <li>Visualización cartográfica y publicación de información geoespacial.</li>
+                            <li>Integración de SIG para planificación, gestión y comunicación de rutas y destinos turísticos.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-body">
+                        <h3>Docente de Diplomado en Catastro Multifinalitario</h3>
+                        <p class="timeline-role-meta">Módulo: "Catastro Multifinalitario y Desarrollo Urbano"</p>
+                        <ul class="timeline-highlights">
+                            <li>Diseño y desarrollo del módulo para gobiernos autónomos municipales.</li>
+                            <li>Articulación de componentes físicos, jurídicos, económicos, sociales y ambientales.</li>
+                            <li>Aplicación de SIG, datos abiertos, planificación urbana, tributación y sostenibilidad territorial.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2024 · 2026</div>
+                    <div class="timeline-body">
+                        <h3>Técnico de Catastro en Santa Rosa del Sara</h3>
+                        <p class="timeline-role-meta">Gobierno Municipal · Gestión catastral y ordenamiento territorial</p>
+                        <ul class="timeline-highlights">
+                            <li>Actualización de áreas urbanas dispersas y migración CAD-SIG.</li>
+                            <li>Cartografía, geodesia y soporte técnico para delimitaciones territoriales.</li>
+                            <li>Propuestas para distritos urbanos-rurales y organización del territorio.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-body">
+                        <h3>Catastro, Drones y Alerta Temprana</h3>
+                        <p class="timeline-role-meta">Proyecto municipal · Gestión territorial y respuesta ante incendios</p>
+                        <ul class="timeline-highlights">
+                            <li>Estructuración metodológica de un catastro multifinalitario.</li>
+                            <li>Actualizaciones catastrales con dron y regularización predial.</li>
+                            <li>Apoyo al SMAT frente a incendios y monitoreo territorial.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2021 · 2022</div>
+                    <div class="timeline-body">
+                        <h3>Cartografía y Urbanismo Municipal</h3>
+                        <p class="timeline-role-meta">San Miguel de Velasco · Análisis territorial y SIG</p>
+                        <ul class="timeline-highlights">
+                            <li>Análisis de accesibilidad educativa y evaluación del crecimiento urbano.</li>
+                            <li>Cartografía base municipal e implementación de SIG.</li>
+                            <li>Soporte para planificación urbana y rural.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-body">
+                        <h3>Investigación Geodésica en el IGM</h3>
+                        <p class="timeline-role-meta">Instituto Geográfico Militar · GNSS y marco vertical</p>
+                        <ul class="timeline-highlights">
+                            <li>Modelo de trayectoria para la estación GNSS SCRZ.</li>
+                            <li>Análisis de velocidad por componentes.</li>
+                            <li>Apoyo al levantamiento gravimétrico para el marco vertical MARGEV.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-body">
+                        <h3>Asistencia SIG en la Chiquitania</h3>
+                        <p class="timeline-role-meta">Comité de Crisis Permanente · Incendios forestales</p>
+                        <ul class="timeline-highlights">
+                            <li>Priorización de comunidades y soporte técnico geoespacial.</li>
+                            <li>Reporte de perímetro activo y áreas quemadas.</li>
+                            <li>Simulación y seguimiento de incendios.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2019 · 2020</div>
+                    <div class="timeline-body">
+                        <h3>UMIG · Autoridad de Bosques y Tierra</h3>
+                        <p class="timeline-role-meta">Chuquisaca y Santa Cruz · Teledetección y monitoreo</p>
+                        <ul class="timeline-highlights">
+                            <li>Evaluación de incidencia antrópica con técnicas de teledetección.</li>
+                            <li>Monitoreo de información geoespacial para gestión territorial.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item reveal">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-body">
+                        <h3>Topografía para Infraestructura Hídrica</h3>
+                        <p class="timeline-role-meta">Saipina y Vallegrande · Obras de agua y micro riego</p>
+                        <ul class="timeline-highlights">
+                            <li>Apoyo topográfico para mejora del sistema de agua potable de Saipina.</li>
+                            <li>Trabajo técnico en el sistema de micro riego San Gerónimo-Coloradillo.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="gallery">
+            <div class="section-heading reveal">
+                <span class="section-index">04</span>
+                <div>
+                    <p class="section-kicker">Galería</p>
+                    <h2>Galería</h2>
+                </div>
+            </div>
+
+            <div class="gallery-layout">
+                <figure class="gallery-card gallery-card-feature reveal">
+                    <img src="assets/yo-geodesia-onu.jpg" alt="Participación profesional en espacio de geodesia e institucionalidad técnica">
+                    <figcaption>
+                        <strong>Geodesia y topografía</strong>
+                        <span>Participación en talleres regionales sobre sistemas de referencia geodésicos modernos.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/iglesia-san-miguel-dron.jpg" alt="Vista aérea de trabajo territorial en San Miguel de Velasco">
+                    <figcaption>
+                        <strong>Teledetección y fotogrametría aérea</strong>
+                        <span>Análisis del territorio a partir de información aérea en contextos urbano-rurales.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/comunidades.jpg" alt="Trabajo territorial con comunidades">
+                    <figcaption>
+                        <strong>Planificación y ordenamiento territorial</strong>
+                        <span>Mi trabajo territorial también se vincula con actores locales, lectura social y realidad comunitaria.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/santa-rosita-niños.jpg" alt="Actividad con niños en Santa Rosita">
+                    <figcaption>
+                        <strong>Planificación y ordenamiento territorial</strong>
+                        <span>Proyectos de planificación en comunidades rurales vulnerables.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/igm-portada-gravimetro.jpg" alt="Portada de gravímetro del IGM">
+                    <figcaption>
+                        <strong>Gravimetría</strong>
+                        <span>Trabajos técnicos de gravimetría para el calculo de números geopotenciales con el fin de definir el marco vertical de referencia nacional (MARGEV).</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/levantamiento-datos.jpg" alt="Participación en espacio de formación y trabajo técnico especializado">
+                    <figcaption>
+                        <strong>Sistemas de información geográfica</strong>
+                        <span>Levantamiento de información geográfica para proyectos de energia solar en comunidades rurales.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/levantamiento-datos-com.jpg" alt="Levantamiento de datos con equipo GNSS en campo">
+                    <figcaption>
+                        <strong>Geodesia y topografía</strong>
+                        <span>Levantamiento topográfico para determinar volúmenes de materiales en bancos de tierra.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/levantamiento-datos2.jpg" alt="Levantamiento técnico en obra con equipo GNSS">
+                    <figcaption>
+                        <strong>Geodesia y topografía</strong>
+                        <span>Levantamiento catastrales de bienes inmuebles en áreas urbanas.</span>
+                    </figcaption>
+                </figure>
+                <figure class="gallery-card reveal">
+                    <img src="assets/levantamiento-datos3.jpg" alt="Levantamiento y control topográfico en obra">
+                    <figcaption>
+                        <strong>Geodesia y topografía</strong>
+                        <span>Levantamiento y control topográfico en obra.</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="map-section" id="map">
+            <div class="section-heading reveal">
+                <span class="section-index">05</span>
+                <div>
+                    <p class="section-kicker">Territorio</p>
+                    <h2>Territorio</h2>
+                </div>
+            </div>
+
+            <div class="map-layout">
+                <div class="map-sidebar reveal">
+                    <p>
+                        Mi trayectoria territorial se concentra en Santa Cruz, donde he desarrollado
+                        experiencia en gestión municipal, monitoreo ambiental, incendios forestales,
+                        cartografía urbana y redes geodésicas. Este mapa sintetiza el alcance geográfico de
+                        mi trabajo y los principales regiones del departamento donde he desarrollado proyectos.
+                    </p>
+                    <div class="map-stats">
+                        <article class="map-stat-card">
+                            <strong>5/7</strong>
+                            <span>Regiones recorridas</span>
+                        </article>
+                        <article class="map-stat-card">
+                            <strong>+30</strong>
+                            <span>Municipios visitados</span>
+                        </article>
+                    </div>
+                </div>
+                <div id="career-map" class="reveal" aria-label="Mapa de trayectoria territorial"></div>
+            </div>
+        </section>
+
+        <section class="students-section" id="students">
+            <div class="section-heading reveal">
+                <span class="section-index">06</span>
+                <div>
+                    <p class="section-kicker">Alcance Formativo</p>
+                    <h2>Alcance Formativo</h2>
+                </div>
+            </div>
+
+            <div class="students-layout">
+                <div class="students-sidebar reveal">
+                    <p>
+                        Este espacio presenta una síntesis del alcance formativo, a partir de la participación registrada. Presenta una síntesis general del alcance formativo y la procedencia municipal registrada en los grupos con datos disponibles.
+                    </p>
+
+                    <div class="students-stats">
+                        <article class="students-stat-card">
+                            <strong id="students-total">+100</strong>
+                            <span>Estudiantes</span>
+                        </article>
+                        <article class="students-stat-card">
+                            <strong>+50</strong>
+                            <span>Estudiantes georreferenciados</span>
+                        </article>
+                        <article class="students-stat-card">
+                            <strong id="students-municipalities">35</strong>
+                            <span>Municipios registrados</span>
+                        </article>
+                    </div>
+
+                </div>
+                <div id="students-map" class="reveal" aria-label="Mapa de estudiantes de postgrado"></div>
+
+            </div>
+        </section>
+
+        <section class="research-section" id="teaching">
+            <div class="section-heading reveal">
+                <span class="section-index">07</span>
+                <div>
+                    <p class="section-kicker">Investigacion</p>
+                    <h2>Líneas de investigación</h2>
+                </div>
+            </div>
+
+            <div class="research-grid">
+                <article class="research-card reveal">
+                    <p class="research-status">En proceso</p>
+                    <h3>Estimación y validación del retardo troposférico cenital (ZTD) y del vapor de agua precipitable (PWV)</h3>
+                    <p>Desarrollo esta investigación a partir de estaciones GNSS continuas en Bolivia para el monitoreo hidroclimático, con estudio en SCRZ, URUS y CBMB.</p>
+                </article>
+                <article class="research-card reveal">
+                    <p class="research-status">En proceso</p>
+                    <h3>Determinación de un campo de velocidades regional a través de GAMIT/GLOBK</h3>
+                    <p>Aplico este estudio al área metropolitana de Santa Cruz.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="recognition-section" id="recognition">
+            <div class="section-heading reveal">
+                <span class="section-index">08</span>
+                <div>
+                    <p class="section-kicker">Reconocimiento e institucionalidad</p>
+                    <h2>Reconocimientos y afiliaciones</h2>
+                </div>
+            </div>
+
+            <div class="recognition-layout">
+                <article class="recognition-feature reveal">
+                    <p class="feature-label">Reconocimiento 2024</p>
+                    <h3>Distinción del Concejo Municipal de San Miguel de Velasco</h3>
+                    <p>
+                        A inicios de 2024 recibí un reconocimiento por mis contribuciones técnicas y
+                        sociales en proyectos municipales, destacando mi capacidad para integrar innovación,
+                        desarrollo urbano y enfoque humano en beneficio de la población.
+                    </p>
+                </article>
+
+                <div class="recognition-list">
+                    <article class="recognition-feature reveal">
+                        <p class="feature-label">Afiliación</p>
+                        <h3>SIB-SC</h3>
+                        <p>Soy miembro de la Sociedad de Ingenieros de Bolivia, Regional Santa Cruz, y del Colegio de Ingenieros Agrimensores.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-shell">
+            <p class="footer-kicker">Contacto</p>
+            <div class="footer-contact">
+                <a class="footer-contact-card" href="mailto:es20.hlcdl@gmail.com">
+                    <span class="footer-icon">✉</span>
+                    <span class="footer-label">Correo</span>
+                    <strong>es20.hlcdl@gmail.com</strong>
+                </a>
+                <a class="footer-contact-card" href="tel:+59171340964">
+                    <span class="footer-icon">☎</span>
+                    <span class="footer-label">Teléfono</span>
+                    <strong>+591 71340964</strong>
+                </a>
+                <a class="footer-contact-card" href="https://www.linkedin.com/in/gustavo-c%C3%A1ceres-sig/" target="_blank" rel="noopener noreferrer">
+                    <span class="footer-icon">in</span>
+                    <span class="footer-label">Perfil</span>
+                    <strong>LinkedIn</strong>
+                </a>
+                <a class="footer-contact-card" href="https://www.spatialnode.net/es20hlcdl" target="_blank" rel="noopener noreferrer">
+                    <span class="footer-icon">{/}</span>
+                    <span class="footer-label">Portafolio</span>
+                    <strong>Spatialnode</strong>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-top">
+                    <span>Gustavo Abel Cáceres Martínez</span>
+                    <span>Ingeniero Agrimensor</span>
+                    <span>Santa Cruz, Bolivia</span>
+                </div>
+                <span class="footer-bottom-copy">©2026. Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
